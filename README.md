@@ -1,1 +1,3 @@
-# python_mice
+# Can a python (package) do what mice can?
+
+This repository contains...
