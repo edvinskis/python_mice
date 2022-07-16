@@ -168,7 +168,7 @@ bias_plot_0.1 <-
   scale_fill_brewer(palette = "Greys", direction = 1) +
   labs(
     # subtitle = "Bias of X1, X2, X3, X4 for different imputation methods 
-    # under MAR and MCAR missingness mechanisms with a missingness proportion of 10%",
+    # under MCAR and MAR missingness mechanisms with a missingness proportion of 10%",
     x = "Bias",
     y = "Imputation method",
     fill = "Missingness mechanism",
@@ -195,7 +195,7 @@ bias_plot_0.25 <-
   scale_fill_brewer(palette = "Greys", direction = 1) +
   labs(
     # subtitle = "Bias of X1, X2, X3, X4 for different imputation methods
-    # under MAR and MCAR missingness mechanisms with a missingness proportion of 25%",
+    # under MCAR and MAR missingness mechanisms with a missingness proportion of 25%",
     x = "Bias",
     y = "Imputation method",
     fill = "Missingness mechanism",
@@ -222,7 +222,7 @@ bias_plot_0.5 <-
   scale_fill_brewer(palette = "Greys", direction = 1) +
   labs(
     # subtitle = "Bias of X1, X2, X3, X4 for different imputation methods 
-    # under MAR and MCAR missingness mechanisms with a missingness proportion of 50%",
+    # under MCAR and MAR missingness mechanisms with a missingness proportion of 50%",
     x = "Bias",
     y = "Imputation method",
     fill = "Missingness mechanism",
@@ -265,7 +265,7 @@ cov_plots <-
   labs(
     # subtitle = 
     # "Coverage of X1, X2, X3, X4 for different imputation methods - 
-    # under MAR and MCAR missingness mechanisms 
+    # under MCAR and MAR missingness mechanisms 
     # with three missingness proportions (10 %, 25% and 50%)",
     y = "Coverage",
     x = "Imputation method",
@@ -301,9 +301,6 @@ ciw_0.1 <- performance %>%
 ciw_for_plots <- rbind(ciw_0.1, ciw_0.25, ciw_0.5)
 
 ciw_plots <- 
-  # performance %>%
-  # filter(!(term %in% "(Intercept)")) %>%
-  # filter(prop >= 0.5 & prop <= 0.5) %>%
   ciw_for_plots %>%
   mutate(mech = factor(mech, levels = c("MCAR", "MAR"))) %>%
   ggplot() +
@@ -312,7 +309,7 @@ ciw_plots <-
   scale_fill_brewer(palette = "Greys", direction = 1) +
   labs(
     # subtitle = "Confidence interval width of X1, X2, X3, X4 for different imputation methods 
-    # under MAR and MCAR missingness mechanisms with three missingness proportions",
+    # under MCAR and MAR missingness mechanisms with three missingness proportions",
     x = "Confidence interval width",
     y = "Imputation method",
     fill = "Missingness mechanism",
@@ -341,7 +338,7 @@ bias_plot_X1 <-
   scale_fill_brewer(palette = "Greys", direction = 1) +
   labs(
     # subtitle = "Bias of X1 for different imputation methods
-    # under MAR and MCAR missingness mechanisms with a missingness proportion of 50%",
+    # under MCAR and MAR missingness mechanisms with a missingness proportion of 50%",
     y = "Bias",
     x = "Imputation method",
     fill = "Missingness mechanism",
@@ -368,7 +365,7 @@ ciw_plot_X1 <-
   scale_fill_brewer(palette = "Greys", direction = 1) +
   labs(
     # subtitle = "Confidence interval width of X1 for different imputation methods
-    # under MAR and MCAR missingness mechanisms with a missingness proportion of 50%",
+    # under MCAR and MAR missingness mechanisms with a missingness proportion of 50%",
     x = "Confidence interval width",
     y = "Imputation method",
     fill = "Missingness mechanism",
@@ -393,7 +390,7 @@ cov_plot_X1 <-
   labs(
     # subtitle = 
     # "Coverage of X1 for different imputation methods
-    # under MAR and MCAR missingness mechanisms with a missingness proportion of 50%",
+    # under MCAR and MAR missingness mechanisms with a missingness proportion of 50%",
     y = "Coverage",
     x = "Imputation method",
     fill = 
