@@ -259,9 +259,9 @@ cov_plots <-
   cov_for_plots %>%
   mutate(mech = factor(mech, levels = c("MCAR", "MAR"))) %>%
   ggplot() +
-  aes(x = method, y = cov,  fill = mech) +
-  geom_point(shape=21) +
-  scale_fill_manual(values = c("MCAR" = "gray84", "MAR" = "gray39")) +
+  aes(x = method, y = cov, colour = mech) +
+  geom_point(shape = 19) +
+  scale_colour_manual(values = c("MCAR" = "gray74", "MAR" = "gray29")) +
   labs(
     # subtitle = 
     # "Coverage of X1, X2, X3, X4 for different imputation methods - 
@@ -269,14 +269,16 @@ cov_plots <-
     # with three missingness proportions (10 %, 25% and 50%)",
     y = "Coverage",
     x = "Imputation method",
-    fill = 
+    colour = 
       "Missingness mechanism"
   ) +
   theme_bw() +
   theme(legend.position = "top") +
-  facet_nested_wrap(vars(prop, term), scales = "fixed", ncol = 4) + coord_cartesian(ylim = c(0.85, 0.98)) +
+  facet_nested_wrap(vars(prop, term), scales = "fixed", ncol = 4) + 
+  scale_y_continuous(breaks = seq(0.86, 0.97, by = 0.02)) +
   geom_hline(yintercept = 0.94, linetype="dashed", color = "darkgray") + 
   geom_hline(yintercept = 0.96, linetype="dashed", color = "darkgray") +
+  geom_hline(yintercept = 0.95, linetype="dotted", color = "lightgray") +
   theme(text = element_text(size = 11,  family = "mono"))
 
 plot(cov_plots)
@@ -384,24 +386,24 @@ cov_plot_X1 <-
   mutate(prop = recode(prop, "0.5" = "Missingness proportion = 0.5")) %>%
   mutate(mech = factor(mech, levels = c("MCAR", "MAR"))) %>%
   ggplot() +
-  aes(x = method, y = cov, fill = mech) +
-  geom_point(shape=21) +
-  scale_fill_manual(values = c("MCAR" = "gray84", "MAR" = "gray39")) +
+  aes(x = method, y = cov, colour = mech) +
+  geom_point(shape = 19) +
+  scale_colour_manual(values = c("MCAR" = "gray74", "MAR" = "gray29")) +
   labs(
     # subtitle = 
     # "Coverage of X1 for different imputation methods
     # under MCAR and MAR missingness mechanisms with a missingness proportion of 50%",
     y = "Coverage",
     x = "Imputation method",
-    fill = 
-      "Missingness 
-  mechanism"
+    colour = 
+      "Missingness mechanism"
   ) +
   theme_bw() +
   theme(legend.position = "top") +
   facet_nested_wrap(vars(prop, term), scales = "fixed") +
   geom_hline(yintercept = 0.94, linetype = "dashed", color = "darkgray") + 
   geom_hline(yintercept = 0.96, linetype = "dashed", color = "darkgray") + 
+  geom_hline(yintercept = 0.95, linetype="dotted", color = "lightgray") +
   theme(text = element_text(size = 11,  family = "mono"))
 
 plot(cov_plot_X1)
