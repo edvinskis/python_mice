@@ -386,16 +386,18 @@ cov_plot_X1 <-
   mutate(prop = recode(prop, "0.5" = "Missingness proportion = 0.5")) %>%
   mutate(mech = factor(mech, levels = c("MCAR", "MAR"))) %>%
   ggplot() +
-  aes(x = method, y = cov, colour = mech) +
-  geom_point(shape = 19) +
-  scale_colour_manual(values = c("MCAR" = "gray74", "MAR" = "gray29")) +
+  aes(x = method, y = cov, colour = mech, fill = mech) +
+  geom_point(shape = 21) +
+  guides(colour = "none") +
+  scale_colour_manual(values = c("MCAR" = "#f8766d", "MAR" = "#f8766d")) +
+  scale_fill_manual(values = c("MCAR" = "gray74", "MAR" = "gray29")) +
   labs(
     # subtitle = 
     # "Coverage of X1 for different imputation methods
     # under MCAR and MAR missingness mechanisms with a missingness proportion of 50%",
     y = "Coverage",
     x = "Imputation method",
-    colour = 
+    fill = 
       "Missingness mechanism"
   ) +
   theme_bw() +
