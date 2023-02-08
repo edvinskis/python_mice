@@ -39,7 +39,7 @@ apply_MICE <- function(amp) {
 }
 
 # miceRanger imputation
-# executes exactly the same fuctions as miceforest in Python)
+# executes exactly the same functions as miceforest in Python
 # miceRanger is essentially miceforest translated to R
 apply_MICER <- function(amp) {
   # imputation with MICERanger
@@ -66,14 +66,12 @@ apply_MICER <- function(amp) {
 }
 
 # Python imputation
-# use reticulate() to use Python functions in R
-reticulate::use_condaenv("r-reticulate", required = TRUE) #virtual environment is user specific
+
 np <- import("numpy") #import numpy
 pd <- import("pandas") #import pandas
 sklearn_impute <- import("sklearn.impute") #import sklearn.impute
-knn_imputer <- sklearn_impute$KNNImputer() #impurt KNNImputer from sklearn.impute as knn_imputer
-fancy_impute <- import("fancyimpute") #import fancyimpute
-it_imputer <- fancy_impute$IterativeImputer() #impurt IterativeImputer from fancyimpute as it_imputer
+knn_imputer <- sklearn_impute$KNNImputer() #import KNNImputer from sklearn.impute as knn_imputer
+it_imputer <- sklearn_impute$IterativeImputer() #import IterativeImputer from sklearn.impute as it_imputer
 
 # KNNImputer imputataion
 apply_KNN_imputer <- function(amp) {

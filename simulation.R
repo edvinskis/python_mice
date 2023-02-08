@@ -12,6 +12,7 @@ library(mice)
 library(miceadds)
 # reticulate package for handling Python code in R
 library(reticulate)
+reticulate::use_condaenv("r-reticulate", required = TRUE) #virtual environment is user specific
 # Python imputation (MIDAS imputation in R)
 # for rMIDAS to work properly please use a Python environment that contains at least:
 # python >3.7
@@ -19,7 +20,7 @@ library(reticulate)
 # pandas >1.3.5
 # scikit-learn >1.1.1
 # tensorflow >2.7
-# tensorflow addons >0.17.0
+# tensorflow-addons >0.17.0
 # matplotlib > 3.5.2
 library(rMIDAS)
 # packages for plots
@@ -60,7 +61,7 @@ CCA <- apply_CCA(amps[[1]])
 MICE <- apply_MICE(amps[[1]])
 
 # impute data with miceRanger 
-# executes exactly the same fuctions as miceforest in Python)
+# executes exactly the same functions as miceforest in Python
 # miceRanger is essentially miceforest translated to R
 MICER <- apply_MICER(amps[[1]])
 
