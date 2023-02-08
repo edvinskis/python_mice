@@ -95,7 +95,7 @@ apply_KNN_imputer <- function(amp) {
 # IterativeImputer imputataion
 apply_IterativeImputer <- function(amp) {
   # IterativeImputer
-  it_imputer <- fancy_impute$IterativeImputer(max_iter = 5L, sample_posterior = TRUE,
+  it_imputer <- sklearn_impute$IterativeImputer(max_iter = 5L, sample_posterior = TRUE,
                                               verbose = 2L) #default max iterations is 10
   # coerce NaN's                                            # using five iterations and five datasets
   amp_nan <- amp$amp
